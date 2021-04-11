@@ -25,10 +25,9 @@ class Play extends Phaser.Scene {
 
         this.p1Rocket = new Rocket(
             this, 
-            game.config.width/2,
-            game.config.height - borderUISize - borderPadding,
-            'rocket'
-        );
+            game.config.width/2, 
+            game.config.height - borderUISize, 
+            'rocket').setOrigin(0.5, 0);
 
         this.ship1 = new Ship(
             this,
@@ -75,7 +74,8 @@ class Play extends Phaser.Scene {
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
-        keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);  
+        keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+
      }
 
     update(){
@@ -93,7 +93,7 @@ class Play extends Phaser.Scene {
     }
 
     checkCollision(rocket, ship) {
-        
+
         if(this.checkCollision(this.p1Rocket, this.ship03)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship03);   
